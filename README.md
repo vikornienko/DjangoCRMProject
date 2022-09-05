@@ -11,3 +11,5 @@ Using:
 For testing using:
 - pytest-django;
 - pytest-selenium.
+
+Split setting.py for development and production.
