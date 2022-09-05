@@ -7,3 +7,7 @@ Using:
 - python 3.9.13;
 - poetry 1.1.14;
 - django 4.1.1.
+
+For testing using:
+- pytest-django;
+- pytest-selenium.
