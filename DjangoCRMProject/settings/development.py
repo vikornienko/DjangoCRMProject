@@ -1,4 +1,5 @@
 # https://www.digitalocean.com/community/tutorials/how-to-harden-your-production-django-project
+
 from .base import *
 
 DEBUG = True
@@ -12,5 +13,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR / 'db.sqlite3'),
+        'TEST': { # test database settings
+            'NAME': 'mytestdatabase', # test database name
+        },
     }
 }
