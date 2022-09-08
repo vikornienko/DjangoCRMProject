@@ -3,10 +3,17 @@
 import os
 import sys
 
+# Add settings for dotenv file.
+# https://www.digitalocean.com/community/tutorials/how-to-harden-your-production-django-project
+import dotenv
+
 
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoCRMProject.settings.development')
+    # Add settings for dotenv and split settings files.
+    if os.getenv('DJANGO_SETTINGS_MODULE'):
+        os.environ['DJANGO_SETTINGS_MODULE'] = os.getenv('DJANGO_SETTINGS_MODULE')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -20,3 +27,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+    dotenv.load_dotenv(
+        os.path.join(os.path.dirname(__file__), '.env')
+    )
