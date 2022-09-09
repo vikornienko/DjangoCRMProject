@@ -1,11 +1,13 @@
 
-from django.test import LiveServerTestCase
+# from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
 
 
-class SmokeSeleniumTestCase(LiveServerTestCase):
+class SmokeSeleniumTestCase(StaticLiveServerTestCase):
 
-    # dbsettings = development.DATABASES
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -13,7 +15,7 @@ class SmokeSeleniumTestCase(LiveServerTestCase):
             executable_path='/home/vikornienko/PycharmProjects/learningDjango/DjangoCRMProject/other_files/forwebdriver/chromedriver',
             service_log_path='/home/vikornienko/PycharmProjects/learningDjango/DjangoCRMProject/other_files/forwebdriver/chromedriver.log'
         )
-        cls.browser.implicitly_wait(10)
+        cls.browser.implicitly_wait(30)
 
     @classmethod
     def tearDownClass(cls) -> None:
@@ -21,5 +23,6 @@ class SmokeSeleniumTestCase(LiveServerTestCase):
         super().tearDownClass()
 
     def testhomepage(self):
-        self.browser.get('http://127.0.0.1:8000/')
-        assert "The install worked successfully! Congratulations!" in self.browser.title
+        self.browser.get(self.live_server_url)
+        WebDriverWait(self.browser, 10)
+        self.assertEqual(self.browser.title, "The install worked successfully! Congratulations!")
