@@ -1,5 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
+from .models import Lead
 
 def home_page(request):
-    return HttpResponse('Hello, world!')
+    leads = Lead.objects.all()
+    context_for_page = {
+        'leads': leads
+    }
+    return render(request, 'leads/home_page.html', context_for_page)
