@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     # Django-debug-toolbar
     # # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
     'debug_toolbar',
+    # Django-extensions
+    # https://django-extensions.readthedocs.io/en/latest/installation_instructions.html
+    'django_extensions',
     # Project apps
     'leads.apps.LeadsConfig',
 ]
@@ -58,7 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # django-debug-toolbar middleware
+    'django-debug-toolbar middleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
