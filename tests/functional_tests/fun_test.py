@@ -1,11 +1,11 @@
 
-# from django.test import LiveServerTestCase
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from django.test import LiveServerTestCase
+# from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-class SmokeSeleniumTestCase(StaticLiveServerTestCase):
+class SmokeSeleniumTestCase(LiveServerTestCase):
 
 
     @classmethod
@@ -23,6 +23,6 @@ class SmokeSeleniumTestCase(StaticLiveServerTestCase):
         super().tearDownClass()
 
     def testhomepage(self):
-        self.browser.get(self.live_server_url)
+        self.browser.get(self.live_server_url + 'leads/')
         WebDriverWait(self.browser, 10)
-        self.assertEqual(self.browser.title, "The install worked successfully! Congratulations!")
+        self.assertEqual(self.browser.title, "Home page")

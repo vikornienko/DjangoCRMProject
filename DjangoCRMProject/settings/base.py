@@ -61,7 +61,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django-debug-toolbar middleware',
+    # 'django-debug-toolbar middleware',
+    # Dont delete commenting in django-debug-toolbar middleware!
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
