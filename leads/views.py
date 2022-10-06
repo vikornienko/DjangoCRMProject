@@ -13,4 +13,7 @@ def lead_list(request):
 
 def lead_detail(request, pk):
     lead = Lead.objects.get(id=pk)
-    return HttpResponse(f'here is the lead number {lead} detail view')
+    context_for_page = {
+        "lead": lead
+    }
+    return render(request, "leads/lead_detail.html", context_for_page)

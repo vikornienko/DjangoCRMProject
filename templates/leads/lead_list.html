@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Lead list</title>
     <style>
         .lead {
             padding-top: 10px;
@@ -19,7 +19,7 @@
 <h1>This is all of our leads</h1>
 {% for lead in leads  %}
     <div class="lead">
-      {{ lead.first_name }} {{ lead.last_name }}. Age: {{ lead.age }}
+        <a href="/leads/{{ lead.pk }}" >{{ lead.first_name }} {{ lead.last_name }}</a> . Age: {{ lead.age }}
     </div>
 {% endfor %}
 
